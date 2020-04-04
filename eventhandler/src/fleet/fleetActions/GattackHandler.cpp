@@ -16,7 +16,7 @@ namespace gattack
 		bh->battle(this->f,this->targetEntity,this->actionLog);
 
 		// gas-attack the planet
-		if (bh->returnV==1) {
+		if (bh->getBattleResult()==1) {
 					
 			// Precheck action==possible? 
 			if (this->f->actionIsAllowed()) {

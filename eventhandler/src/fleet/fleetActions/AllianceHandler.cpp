@@ -39,7 +39,7 @@ void AllianceHandler::update()
 	bh->battle(this->f,this->targetEntity,this->actionLog);
 
 	// if fleet user has won the fight, send fleet home
-	if (bh->returnFleet)
+	if (bh->getReturnFleet())
 	{
 	    this->f->setReturn();
 	}

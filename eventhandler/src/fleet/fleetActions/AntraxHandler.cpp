@@ -17,7 +17,7 @@ namespace antrax
 		bh->battle(this->f,this->targetEntity,this->actionLog);
 		
 		// Antrax the planet
-		if (bh->returnV==1) {
+		if (bh->getBattleResult()==1) {
 			
 			// Precheck action==possible?
 			if (this->f->actionIsAllowed()) {

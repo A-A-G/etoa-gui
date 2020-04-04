@@ -2,49 +2,31 @@
 #ifndef __BATTLEHANDLER__
 #define __BATTLEHANDLER__
 
-#include <ctime>
-#include <cmath>
-#include <cstdio>
-#define MYSQLPP_MYSQL_HEADERS_BURIED
-#include <mysql++/mysql++.h>
-
-#include "../../MysqlHandler.h"
-#include "../../config/ConfigHandler.h"
-#include "../../util/Functions.h"
-
-#include "../../objects/Fleet.h"
-#include "../../entity/Entity.h"
-#include "../../objects/Log.h"
-
-#include "../../reports/BattleReport.h"
-
 /**
 * Handles battles....
 *
 * \author Stephan Vock <glaubinix@etoa.ch>
 */
 
+#include <string>
+
+class Fleet;
+class Entity;
+class Log;
+
 class BattleHandler
 {
-	public:
-		BattleHandler() { }
-		BattleHandler(Message *message) {	}
-		void battle(Fleet* fleet, Entity* entity, Log* log, bool ratingEffect = true);
+  public:
+    BattleHandler() = default;
+    ~BattleHandler() {};
+    void battle(Fleet* fleet, Entity* entity, Log* log, bool ratingEffect = true);
+    bool getReturnFleet() const;
+    bool getBattleResult() const;
 
-		~BattleHandler() {	}
-
-		bool alliancesHaveWar;
-
-		short runde;
-
-		double attPercent, defPercent;
-		int attCnt, defCnt;
-		int attPoints,defPoints;
-		short attResult, defResult;
-
-		short returnV;
-		std::string bstat, bstat2;
-		bool returnFleet;
+  private:
+    int getUser(std::string& users, size_t& found) const;
+    short _battleResult = 4;
+    bool _returnFleet = true;
 
 };
 #endif

@@ -17,8 +17,7 @@ namespace steal
 		bh->battle(this->f,this->targetEntity,this->actionLog, false);
 
 		// Steal a tech
-		if (bh->returnV==1) {
-			bh->returnFleet = true;
+		if (bh->getBattleResult()==1) {
 
 			// Precheck action==possible?
 			if (this->f->actionIsAllowed()) {

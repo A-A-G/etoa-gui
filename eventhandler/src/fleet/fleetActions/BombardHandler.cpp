@@ -17,7 +17,7 @@ namespace bombard
 		bh->battle(this->f,this->targetEntity,this->actionLog);
 
 		// Bombard the planet
-		if (bh->returnV==1) {
+		if (bh->getBattleResult()==1) {
 			
 			// Precheck action==possible?
 			if (this->f->actionIsAllowed()) {
